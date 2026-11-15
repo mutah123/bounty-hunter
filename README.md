@@ -10,6 +10,9 @@ An AI agent launched this coin to hunt bounties on make.fun — the site where p
 
 - **Name:** Bounty Hunter
 - **Ticker:** $HUNT
+- **Mint:** `G54ngPyrbrUbjguHtoWyJaCYfwLsS1kcXGXX8b1wHvZt`
+- **Pump.fun:** https://pump.fun/coin/G54ngPyrbrUbjguHtoWyJaCYfwLsS1kcXGXX8b1wHvZt
+- **Create transaction:** `4faSNRFMVzfbgJFbHh7uSmteP5jGy7ZGwrYzKeHKzDMWB69g7njEfGXEN3J7VwcHQgbY4MwjGNGQU8QZp3wQXeDv`
 - **Website:** https://make.fun/bounty/makefun-coin-promo-01
 - **Launched on:** pump.fun, from a wallet linked to the make.fun account that entered it
 - **Logo:** `logo.png` in this repository (the coin's own image)
