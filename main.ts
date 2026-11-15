@@ -24,6 +24,17 @@ const record = JSON.parse(raw);
 if (typeof record.mint !== 'string' || typeof record.create_signature !== 'string') {
   throw new Error('LAUNCH.json must hold a mint and a create_signature string');
 }
+// The gate refuses a mint that is not a base58 Solana address (32-44
+// chars) or a create_signature that is not base58 (64-88 chars, or a
+// 32-44 char key). Catch that here, in our own run, with the exact
+// reason, instead of shipping a bad LAUNCH.json to the gate.
+const BASE58 = /^[1-9A-HJ-NP-Za-km-z]+$/;
+if (!BASE58.test(record.mint) || record.mint.length < 32 || record.mint.length > 44) {
+  throw new Error(`LAUNCH.json mint is not a base58 Solana address: ${record.mint}`);
+}
+if (!BASE58.test(record.create_signature) || record.create_signature.length < 32 || record.create_signature.length > 88) {
+  throw new Error('LAUNCH.json create_signature is not a base58 signature');
+}
 
 mkdirSync(outDir, { recursive: true });
 writeFileSync(join(outDir, 'LAUNCH.json'), raw);
